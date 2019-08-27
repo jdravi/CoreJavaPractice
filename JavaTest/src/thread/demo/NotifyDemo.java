@@ -18,7 +18,6 @@ class MythreadOne extends Thread{
 }
 
 class MythreadTwo extends Thread{
-
     private MythreadOne t1;
     MythreadTwo(MythreadOne t1){
         this.t1 = t1;
@@ -52,9 +51,8 @@ class MythreadThree extends Thread{
     public void run() {
         synchronized (this.t1){
             System.out.println("Started .." + Thread.currentThread().getName());
-
-            // logic to notify all waiting object with notify only  or use notifyAll()
-/*            for (int i =0;i<Thread.activeCount();i++){
+        /* logic to notify all waiting object with notify only  or use notifyAll()*/
+        /* for (int i =0;i<Thread.activeCount();i++){
                 this.t1.notify();
 
             }*/
@@ -76,9 +74,6 @@ public class NotifyDemo {
         Thread t1 = new Thread(one,"wait-1");
         Thread t2 = new Thread(two,"wait-2");
         Thread t3 = new Thread(three,"NotifyThread");
-
-
-
 
         t1.start();
         t2.start();
